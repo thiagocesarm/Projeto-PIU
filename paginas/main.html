@@ -42,15 +42,20 @@
 			}
 
 			.checkbox {
+				margin-top: 10px;
 				width: 55%;
-				float: right;
+				float: left;
 				font-size: 40px;
+			}
+
+			.label {
+				margin-top: 10px;
 			}
 
 			#button1 {
 				position: absolute;
 				bottom: 5%;
-				font-size: 55px;
+				font-size: 50px;
 				left: 5%;
 				border-radius: 5px;
 				padding: 5px;
@@ -59,6 +64,7 @@
 			#button2 {
 				position: absolute;
 				bottom: 5%;
+				font-size: 50px;
 				right: 5%;
 				border-radius: 5px;
 				padding: 5px;
@@ -67,8 +73,15 @@
 			#map {
 				width: 100%; 
 				height: 1000px; 
-				margin: 7%; 
-				margin: 0;
+			}
+
+			#texto_barra_busca {
+				width: 80%;
+				margin-top: 2%;
+			}
+
+			.form_busca {
+				font-size: 32pt;
 			}
 
 		</style>
@@ -77,28 +90,28 @@
 	<body onload="initialize()">
 		<div id="header">
 			<img src="../imagem/logo_cinza.png" style=" float: right; padding-right: 5%;">
-			<h3>Selecionar Serviço</h3>
+			<h3>Buscar Negócios</h3>
 		</div>
 
 		<div id="conteudo">
-			<form style="width: 100%; ">
+			<form style="width: 100%; " >
+				<input type="text" placeholder="O que deseja encontrar?" id="texto_barra_busca" class="form_busca">
+				<input type="submit" value="Buscar" id="botao_busca" class="form_busca">
 				<div class="label">
-					<select name="tipos_servico">
-					 	<option value="audi">Todos</option>
+					<label class="form_busca">Filtrar por categoria: </label>
+					<select name="tipos_servico" style=" margin-top: 10px; float: right; font-size: 32pt;">
+					 	<option value="audi">Todas</option>
 					 	<option value="volvo">Alimentos</option>
-					 	<option value="saab">Encanamento</option>
-					 	<option value="opel">Serviço Doméstico</option>
+					 	<option value="opel">Serviços Domésticos</option>
 					</select>
 				</div>
 
 				<div class="checkbox">
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Atendimento 24h <br>
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita dinheiro <br>
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita cartão de crédito <br>
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Serviço à Domicilio <br>
+					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0;" class="form_busca"> Atendimento 24h <br>
+					<!-- <input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita dinheiro <br> -->
+					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0;" class="form_busca"> Aceita Cartão <br>
+					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0;" class="form_busca"> Atendimento à Domicílio <br>
 				</div>
-				
-				<input type="submit" value="Cadastrar" id="button">
 			</form>
 
 			<div id="map"></div>
@@ -127,9 +140,9 @@
 				}
 			</script>
 
-			<a id="button1" href="cadastrar_servico.html">Cadastrar Serviço</a>
+			<a id="button1" href="cadastrar_servico.html">Cadastrar Negócio</a>
 			
-			<a id="button2" href="detalhes_servico.html">Selecionar Serviço</a>
+			<a id="button2" href="index.html">Página Inicial</a>
 		</div>
 	</body>
 </html>
