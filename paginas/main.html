@@ -54,7 +54,7 @@
 
 			#button1 {
 				position: absolute;
-				bottom: 5%;
+				bottom: 2%;
 				font-size: 50px;
 				left: 5%;
 				border-radius: 5px;
@@ -63,7 +63,7 @@
 
 			#button2 {
 				position: absolute;
-				bottom: 5%;
+				bottom: 2%;
 				font-size: 50px;
 				right: 5%;
 				border-radius: 5px;
@@ -100,9 +100,11 @@
 				<div class="label">
 					<label class="form_busca">Filtrar por categoria: </label>
 					<select name="tipos_servico" style=" margin-top: 10px; float: right; font-size: 32pt;">
-					 	<option value="audi">Todas</option>
-					 	<option value="volvo">Alimentos</option>
-					 	<option value="opel">Serviços Domésticos</option>
+					 	<option value="todas">Todas</option>
+					 	<option value="alimentos">Alimentos</option>
+					 	<option value="bebidas">Bebidas</option>
+					 	<option value="serviços_dom">Serviços Domésticos</option>
+					 	<option value="serviços_est">Serviços Estéticos</option>
 					</select>
 				</div>
 
@@ -139,10 +141,8 @@
 				    setMapOnCurrentPosition();
 				}
 			</script>
-
-			<a id="button1" href="cadastrar_servico.html">Cadastrar Negócio</a>
-			
-			<a id="button2" href="index.html">Página Inicial</a>
+			<a id="button1" href="../index.html">Página Inicial</a>
+			<a id="button2" href="cadastro_servico.html">Cadastrar Negócio</a>
 		</div>
 	</body>
 </html>

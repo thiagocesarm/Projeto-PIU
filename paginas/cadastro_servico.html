@@ -50,53 +50,103 @@
 				width: 80%;
 				padding-left: 10%;
 				padding-top: 5%;
-				margin-bottom: 5%;
 			}
 
 			.label input, .label textarea  {
 				width: 100%;
 				font-size: 55px;
 				border: 2px solid gray; 
+				/*margin-bottom: 5%;*/
+			}
+
+			.label input {
 				margin-bottom: 5%;
 			}
 
 			#button {
 				position: absolute;
-				bottom: 5%;
 				width: 40%; 
-				font-size: 55px; 
-				right: 5%;
+				font-size: 55px;
+				margin-top: 5%;
+				margin-left: 25%;
 			}
+
+			#map {
+				margin-top: 3%;
+				margin-left: 10%;
+				width: 80%; 
+				height: 400px; 
+			}
+
+			.categoria {
+				margin-left: 10%;
+				margin-bottom: 3%;
+			}
+
 		</style>
 	</head>
 
-	<body>
+	<body onload="initialize()">
 		<div id="header">
 			<img src="../imagem/logo_cinza.png" style=" float: right; padding-right: 5%;">
-			<h3>Cadastro de Serviço</h3>
+			<h3>Cadastro de Negócio</h3>
 		</div>
 
 		<div id="conteudo">
-			<div class="checkbox">
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Atendimento 24h <br>
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita dinheiro <br>
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita cartão de crédito <br>
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Serviço à Domicilio <br>
-			</div>
-
 			<div>
 				<form style="width: 100%;">
 					<!-- COLOCAR DROPDPWN DE CATEGORIAS -->
 					<div class="label">
-						<input placeholder="Nome" type="text" name="nome">
-						<textarea rows="4" cols="50" placeholder="Descrição" name="desc"> </textarea>
+						<input placeholder="Nome do Negócio" type="text" name="nome">
+						<textarea rows="3" cols="50" placeholder="Descrição" name="desc"></textarea>
 					</div>
 
-					<!-- Adiciona o mapa aqui -->
+					<div class="categoria">
+						Categoria: 
+						<select name="tipos_servico" style="font-size: 32pt; margin-left: 6%;">
+						 	<option value="alimentos">Alimentos</option>
+						 	<option value="bebidas">Bebidas</option>
+						 	<option value="serviços_dom">Serviços Domésticos</option>
+						 	<option value="serviços_est">Serviços Estéticos</option>
+						</select>
+					</div>
 
-					<a href="../index.html">< Tela Entrar</a>
+					<div class="checkbox">
+						<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Atendimento 24h <br>
+						<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita Cartão <br>
+						<input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Atendimento à Domicilio <br>
+					</div>
+					<!-- Adiciona o mapa aqui -->
+					<div id="map"></div>
+
+					<script async defer
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFhTlaj1xBAuIiowpn_5-mERxSpbLklcU">
+					//&callback=getLocation
+					
+					</script>
+
+					<script type="text/javascript">
+						var geocoder;
+						var map;
+						var markers = [];
+						function setMapOnCurrentPosition() {
+						  navigator.geolocation.getCurrentPosition(function(position) {
+						    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+						    map.setCenter(latlng);
+						  });
+						}
+						function initialize() {
+						    geocoder = new google.maps.Geocoder();
+						    var mapOptions = { zoom: 18 }
+						    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+						    setMapOnCurrentPosition();
+						}
+					</script>
+
+					
 					<input id="button" type="submit" value="Cadastrar" id="button">
 				</form>	
+				<a href="main.html">Voltar</a>				
 			</div>
 			
 		</div>
