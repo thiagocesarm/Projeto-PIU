@@ -69,6 +69,7 @@ body, html {
 }
 
 .form-signin #inputNome,
+.form-signin #inputCx,
 .form-signin #inputPassword {
     direction: ltr;
     height: 44px;
