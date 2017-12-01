@@ -4,119 +4,47 @@
 		<title>Buscar Negócios</title>
 		<meta charset="utf-8">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-		<style type="text/css">
-
-			body {
-				font-family: 'Roboto', sans-serif;
-			}
-
-			#header {
-				height: 150px;
-				background-color: #b5b5b5;
-				font-size: 55px;
-				padding-left: 5%;
-			}	
-
-			h3 {
-				margin: 0px;
-				padding-top: 38px;
-				padding-left: 2.5%;
-			}
-
-			h4 {
-				padding-top: 0px;
-				padding-bottom: 2.5%;
-			}
-
-			a {
-				text-decoration: none;
-				background-color: #b5b5b5;
-				border: 1px solid black;
-			}
-
-			#conteudo {
-				font-size: 55px;
-				padding-left: 5%;
-				padding-right: 5%;
-			}
-
-			.checkbox {
-				margin-top: 10px;
-				width: 70%;
-				float: left;
-				font-size: 40px;
-				margin-bottom: 5%;
-			}
-
-			.label {
-				margin-top: 10px;
-			}
-
-			#button1 {
-				position: absolute;
-				bottom: 2%;
-				font-size: 50px;
-				left: 5%;
-				border-radius: 5px;
-				padding: 5px;
-			}
-
-			#button2 {
-				position: absolute;
-				bottom: 2%;
-				font-size: 50px;
-				right: 5%;
-				border-radius: 5px;
-				padding: 5px;
-			}
-
-			#map {
-				width: 100%; 
-				height: 900px; 
-			}
-
-			#texto_barra_busca {
-				width: 80%;
-				margin-top: 2%;
-			}
-
-			.form_busca {
-				font-size: 32pt;
-			}
-
-		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
 
 	<body onload="initialize()">
-		<div id="header">
-			<img src="../imagem/logo_cinza.png" style=" float: right; padding-right: 5%;">
-			<h3>Buscar Negócios</h3>
-		</div>
 
-		<div id="conteudo">
-			<form style="width: 100%; " >
-				<input type="text" placeholder="O que deseja encontrar?" id="texto_barra_busca" class="form_busca">
-				<input type="submit" value="Buscar" id="botao_busca" class="form_busca">
-				<div class="label">
-					<label class="form_busca">Filtrar por categoria: </label>
-					<select name="tipos_servico" style=" margin-top: 10px; float: right; font-size: 32pt;">
+
+		<div class="container">
+			<div style="text-align: center; ">
+				<img src="../imagem/logo.png">
+				<h3>Buscar Negócios</h3>
+			</div>
+			<form>
+				<input type="text" id="inputNome" class="form-control" placeholder="O que deseja encontrar?" required autofocus>
+				<br/>
+				<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Buscar</button>
+				<br/>
+				
+					<label >Filtrar por categoria: </label>
+					<select name="tipos_servico">
 					 	<option value="todas">Todas</option>
 					 	<option value="alimentos">Alimentos</option>
 					 	<option value="bebidas">Bebidas</option>
 					 	<option value="serviços_dom">Serviços Domésticos</option>
 					 	<option value="serviços_est">Serviços Estéticos</option>
 					</select>
-				</div>
+				
 
-				<div class="checkbox">
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0;" class="form_busca"> Atendimento 24h <br>
+				<div>
+					<input type="checkbox" name="salve" value="dados" > Atendimento 24h <br>
 					<!-- <input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita dinheiro <br> -->
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0;" class="form_busca"> Aceita Cartão <br>
-					<input type="checkbox" name="salve" value="dados" style="zoom: 2.0;" class="form_busca"> Atendimento à Domicílio <br>
+					<input type="checkbox" name="salve" value="dados"> Aceita Cartão <br>
+					<input type="checkbox" name="salve" value="dados"> Atendimento à Domicílio <br>
 				</div>
 			</form>
 
 			<div id="map"></div>
+
 
 			<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFhTlaj1xBAuIiowpn_5-mERxSpbLklcU">
@@ -141,8 +69,9 @@
 				    setMapOnCurrentPosition();
 				}
 			</script>
-			<a id="button1" href="../index.html">Página Inicial</a>
-			<a id="button2" href="cadastro_servico.html">Cadastrar Negócio</a>
+
+			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" href="../index.html">Página Inicial</button>
+			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" href="cadastro_servico.html">Cadastrar Negócio</button>
 		</div>
 	</body>
 </html>
