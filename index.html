@@ -3,78 +3,36 @@
 	<head>
 		<title>Login</title>
 		<meta charset="utf-8">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-		<style type="text/css">
-			body {	
-				font-family: 'Roboto', sans-serif;
-				font-size: 55px;
-			}
-
-			.labelT > input {
-				width: 100%;
-				border: 2px solid gray; 
-				margin-bottom: 5%;
-			}
-
-			#button {
-				margin-left: 25%;
-				width: 50%; 
-				font-size: 55px; 
-
-			}
-
-			#footer{
-			  padding: 10px;
-			}
-
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-		<div>
-			<div class="row" style="padding-top: 20%;">
-				<div class="col-xs-2"></div>
+	
+	    <div class="container">
+	        <div class="card card-container">
+	            <img id="profile-img" class="profile-img-card" src="imagem/logo.png" />
+	            <p id="profile-name" class="profile-name-card"></p>
+	            <form class="form-signin">
+	                <span id="reauth-email" class="reauth-email"></span>
+	                <input type="email" id="inputEmail" class="form-control" placeholder="Usuário" required autofocus>
+	                <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+	                <div id="remember" class="checkbox">
+	                    <label>
+	                        <input type="checkbox" value="remember-me"> Lembrar dados
+	                    </label>
+	                </div>
+	                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+	                <a href="paginas/cadastro_user.html">Cadastre-se</a>
+	            </form>
 
-				<div class="col-xs-8">
-			  	
-				  	<div>
-				  		<div class="row">
-							<div class="col-xs-2"></div>
-							<div class="col-xs-8"><img src="imagem/logo.png" style="width: 100%"></div>
-							<div class="col-xs-2"></div>
-						</div><br>
+	        </div>
+	    </div>
 
-						<form action="paginas/main.html" method="get" style="width: 100%; ">
-							<div class="labelT">
-								<input placeholder="Usuário" type="text" name="login">
-							</div>
 
-							<div class="labelT">
-								<input placeholder="Senha" type="password" name="senha">
-							</div>
 
-							<input type="checkbox" name="salve" value="dados" style="zoom: 3.0;"> Lembrar dados <br><br>
-							
-							<input type="submit" value="Entrar" id="button">	
-						</form>
-				  	</div>
-					
-				</div>
 
-				<div class="col-xs-2"></div>
-			</div><br><br>
-
-			<div class="row">
-				<div class="col-xs-1"></div>
-
-				<div class="col-xs-11" id="footer">
-					<a href="paginas/cadastro_user.html" >Cadastre-se</a>
-				</div>
-			</div>
-		</div>
 	</body>
 </html>
