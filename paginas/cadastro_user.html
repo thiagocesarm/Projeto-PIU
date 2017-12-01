@@ -3,90 +3,39 @@
 	<head>
 		<title>Cadastro de Usuário</title>
 		<meta charset="utf-8">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
 
-		<style type="text/css">
-			body {
-				font-family: 'Roboto', sans-serif;
-				font-size: 55px;
-			}
-
-			.labelT > input {
-				width: 100%;
-				border: 2px solid gray; 
-				margin-bottom: 5%;
-			}
-
-			h3 {
-				margin: 0px;
-				padding-top: 38px;
-				font-size: 60px;
-				padding-left: 2.5%;
-			}
-
-			h4 {
-				padding-top: 0px;
-				padding-bottom: 2.5%;
-				font-size: 55px;
-			}
-
-			#button {
-				margin-left: 25%;
-				width: 50%; 
-				font-size: 55px; 
-
-			}
-
-			#header {
-				height: 150px;
-				background-color: #b5b5b5;
-				font-size: 55px;
-				padding-left: 5%;
-			}
-
-			#footer{
-			  padding: 10px;
-			}
-
-		</style>
 	</head>
 
 	<body>
-		<div>
-			<div class="row">
-				<div class="col-xs-12" style="padding: 0px;">
-					<div id="header">
-						<!-- MENU DROPDOWN NO LUGAR DA IMG-->
-						<img src="../imagem/logo_cinza.png" style=" float: right; padding-right: 5%;">
-						<a href="../index.html"><h3 style="margin: 0px;"><</h3>	</a>
-					</div>
-				</div>
-			</div><br>
+		<div class="container">
+	        <div class="card card-container">
+	            <img id="profile-img" class="profile-img-card" src="../imagem/logo.png" />
+				<h4 style="text-align: center;">Informe seus dados</h4>
 
-			<div class="row">
-				<div class="col-xs-1"></div>
-				
-				<div class="col-xs-10">
-					<h4>Informe seus dados</h4>
+ 				<form class="form-signin">
+	                <span id="reauth-email" class="reauth-email"></span>
+	                <input id="inputNome" class="form-control" placeholder="Nome" required autofocus>
+	                <br/>
+	                <input id="inputNome" class="form-control" type="password" placeholder="Senha" required autofocus>
+	                <br/>
+	                <input id="inputNome" class="form-control" type="password" placeholder="Repita a senha" required autofocus>
+	                <br/>
+	                <input id="inputNome" class="form-control" placeholder="Email" required autofocus>
+	                <br/>
+	                <input id="inputNome" class="form-control" placeholder="Telefone" required autofocus>
+	                <br/>
 
-					<form style="width: 100%; ">
-						<div class="labelT">
-							<input placeholder="Nome" type="text" name="nome">
-							<input placeholder="Senha" type="password" name="senha">
-							<input placeholder="Repita a senha" type="password" name="senha">
-							<input placeholder="Email" type="email" name="email">
-							<input placeholder="Telefone" type="number" name="telefone">
-						</div><br>
-						<input id="button" type="submit" value="Cadastrar" id="button">
-					</form>
-				</div>
-				
-				<div class="col-xs-1"></div>
-			</div>
-		</div>
+	                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
+	                
+	            </form>
+	        </div>
+	    </div>
 	</body>
 </html>
