@@ -10,40 +10,41 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 	</head>
-
 	<body onload="initialize()">
 
 
 		<div class="container">
-			<div style="text-align: center; ">
-				<img src="../imagem/logo.png">
-				<h4>Buscar Negócios</h4>
-			</div>
-			<form>
-				<input type="text" id="inputNome" class="form-control" placeholder="O que deseja encontrar?" required autofocus>
-				<br/>
-				<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Buscar</button>
-				<br/>
-				
+			<div class="card card-container">
+				<img class="profile-img-card" src="../imagem/logo.png">
+				<h4 style="text-align: center;">Buscar Negócios</h4>
+				<form>
+					<input type="text" id="input_nome" class="form-control" placeholder="O que deseja encontrar?" required autofocus>
+					<button class="btn btn-lg btn-primary btn-block btn-signin" onclick="updateMarkers()" type="button">Buscar</button>
+					<br/>
+
 					<label >Filtrar por categoria: </label>
-					<select name="tipos_servico">
+					<select name="tipos_servico" id="select_categorias" onchange="updateMarkers()">
 					 	<option value="todas">Todas</option>
 					 	<option value="alimentos">Alimentos</option>
 					 	<option value="bebidas">Bebidas</option>
-					 	<option value="serviços_dom">Serviços Domésticos</option>
-					 	<option value="serviços_est">Serviços Estéticos</option>
+					 	<option value="servicos_dom">Serviços Domésticos</option>
+					 	<option value="servicos_est">Serviços Estéticos</option>
 					</select>
-				
 
-				<div>
-					<input type="checkbox" name="salve" value="dados" > Atendimento 24h <br>
-					<!-- <input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita dinheiro <br> -->
-					<input type="checkbox" name="salve" value="dados"> Aceita Cartão <br>
-					<input type="checkbox" name="salve" value="dados"> Atendimento à Domicílio <br>
-				</div>
-			</form>
+					<div>
+						<input type="checkbox" id="checkbox_24h" value="24h" onchange="updateMarkers()"> Atendimento 24h <br>
+						<!-- <input type="checkbox" name="salve" value="dados" style="zoom: 2.0; margin-left: 10%;"> Aceita dinheiro <br> -->
+						<input type="checkbox" id="checkbox_cartao" value="cartao" onchange="updateMarkers()"> Aceita Cartão <br>
+						<input type="checkbox" id="checkbox_domicilio" value="domicilio" onchange="updateMarkers()"> Atendimento à Domicílio <br>
+					</div>
 
-			<div id="map"></div>
+					<div id="map"></div>
+
+					<button class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='cadastro_servico.html'">Cadastrar Negócio</button>	
+					<button class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='../index.html'">Página Inicial</button>
+				</form>
+			</div>
+			
 
 
 			<script async defer
@@ -52,26 +53,9 @@
 			
 			</script>
 
-			<script type="text/javascript">
-				var geocoder;
-				var map;
-				var markers = [];
-				function setMapOnCurrentPosition() {
-				  navigator.geolocation.getCurrentPosition(function(position) {
-				    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-				    map.setCenter(latlng);
-				  });
-				}
-				function initialize() {
-				    geocoder = new google.maps.Geocoder();
-				    var mapOptions = { zoom: 18 }
-				    map = new google.maps.Map(document.getElementById("map"), mapOptions);
-				    setMapOnCurrentPosition();
-				}
-			</script>
+			<script type="text/javascript" src="../javascript/main.js"></script>
 
-			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" href="../index.html">Página Inicial</button>
-			<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" href="cadastro_servico.html">Cadastrar Negócio</button>
+			
 		</div>
 	</body>
 </html>
