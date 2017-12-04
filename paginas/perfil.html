@@ -19,9 +19,39 @@
 	            <img id="profile-img" class="profile-img-card" src="../imagem/logo.png" />
 				<h4 style="text-align: center;">Perfil do usuário</h4>
 				<br>
-				<button class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='editar_usuario.html'">Editar dados</button>
-				<button class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='meus_anuncios.html'">Gerenciar Anúncios</button>
+				<button class="btn btn-lg btn-primary btn-block btn-signin" onclick="location.href='editar_usuario.html'">Editar dados</button><br>
+
+				<h4 style="text-align: center;">Serviços cadastrados</h4>
+
+				<div class="card" id="1">
+					<div class="card-block">
+						<h4 class="card-title">Pedreiro</h4>
+					    <p class="card-text">Servições gerais</p>
+					    <button type="button" class="btn btn-default btn-xs" role="button" onclick="location.href='editar_servico.html'"><i class="glyphicon glyphicon-edit"></i>Editar Anúncio</button>
+			            <button type="button" class="btn btn-danger btn-xs" role="button" onclick="remove(1)"><i class="glyphicon glyphicon-trash"></i>Excluir</button>  
+					</div>
+				</div>
+
+				<div class="card" id="2">
+					<div class="card-block">
+						<h4 class="card-title">Rapidão Reparos</h4>
+					    <p class="card-text">Serviços Domésticos</p>
+					    <button type="button" class="btn btn-default btn-xs" role="button" onclick="location.href='editar_servico.html'"><i class="glyphicon glyphicon-edit"></i>Editar Anúncio</button>
+			            <button type="button" class="btn btn-danger btn-xs" role="button" onclick="remove(2)"><i class="glyphicon glyphicon-trash"></i>Excluir</button>  
+					</div>
+				</div>
+
 	        </div>
 	    </div>
+
+	    <script type="text/javascript">
+
+			function remove(index){
+				document.getElementById("" + index).innerHTML = "";
+				document.getElementById("" + index).className = "";
+			}
+			
+		</script>
+
 	</body>
 </html>

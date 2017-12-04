@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cadastro de Negócio</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+	</head>
+
+	<body onload="initialize()">
+
+
+		<div class="container">
+			<div class="card card-container">
+			
+				<img class="profile-img-card" src="../imagem/logo.png">
+				<h4 style="text-align: center;">Edite seus dados</h4>
+			
+				<form action="perfil.html">	
+					<input type="text" id="inputNome" class="form-control" placeholder="Nome do Negócio" required autofocus>
+					<br/>
+					<textarea class="form-control" id = "inputCx" style="width: 100%;" rows="3" cols="50" placeholder="Descrição"  required autofocus></textarea>
+					<br/>
+
+					<div>
+						Categoria: 
+						<select name="tipos_servico">
+						 	<option value="alimentos">Alimentos</option>
+						 	<option value="bebidas">Bebidas</option>
+						 	<option value="servicos_dom">Serviços Domésticos</option>
+						 	<option value="servicos_est">Serviços Estéticos</option>
+						</select>
+						<div>
+							<input type="checkbox" name="24h" value="24h" > Atendimento 24h <br>
+							<input type="checkbox" name="cartao" value="cartão" > Aceita Cartão <br>
+							<input type="checkbox" name="domicilio" value="domicílio" > Atendimento à Domicilio <br>
+						</div>
+					</div>
+
+					<div id="map"></div>
+					<br/>
+	                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Editar</button>
+
+				</form>	
+
+			</div>
+		</div>
+
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFhTlaj1xBAuIiowpn_5-mERxSpbLklcU">
+		//&callback=getLocation
+		
+		</script>
+
+		<script type="text/javascript">
+			var geocoder;
+			var map;
+			var markerLatLng;
+			var marker;
+
+			function setMapCenter(){
+				// Mapa carrega nas imediações do IMD
+				map.setCenter(new google.maps.LatLng(-5.831977, -35.2049248));
+			}
+
+			function setMapOnCurrentPosition() {
+			  navigator.geolocation.getCurrentPosition(function(position) {
+			    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			    map.setCenter(latlng);
+			  });
+			}
+
+			function initialize() {
+			    geocoder = new google.maps.Geocoder();
+			    var mapOptions = { zoom: 16 }
+			    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			    setMapCenter();
+			    map.addListener('click', function(e) {
+				    placeMarker(e.latLng, map);
+				});
+			}
+
+			function placeMarker(position, map) {
+				if (marker != null) marker.setMap(null);
+				markerLatLng = position;
+			    marker = new google.maps.Marker({
+			        position: position,
+			        map: map
+			    });
+			    // map.panTo(position);
+			}
+		</script>
+
+	</body>
+</html>
